@@ -1,0 +1,23 @@
+#alert.yml
+groups:
+- name: Jenkins Alert
+  rules:
+#    - alert: InstanceDown
+#      expr: up == 0
+#      for: 15s
+#      labels:
+#        severity: critical
+#      annotations:
+#        summary: "Instance [{{ $labels.instance }}] down"
+#        description: "[{{ $labels.instance }}] of job {{ $labels.job }} has been down for more than 15 seconds."
+
+    - alert: JenkinsBuildFailed
+      expr: ({__name__="jenkins_runs_failure_total", instance="jenkins-blueocean:8080", job="jenkins"} > 0)
+#      expr: default_jenkins_builds_total_build_count_total({buildable="true", instance="jenkins-blueocean:8080", jenkins_job="submission-cicd-pipeline-muhrizkya", job="jenkins", repo="NA"}) > 0
+      for: 10s
+      labels:
+        severity: critical
+      annotations:
+        summary: "A Jenkins job has failed."
+        description: "The Jenkins job  has failed for the last 10 seconds."
+        message: "Jenkins build failed! Check the job logs."

@@ -1,0 +1,14 @@
+# alertmanager.yml
+route:
+  receiver: 'telegram'
+  group_wait: 15s
+  group_interval: 15s
+  repeat_interval: 30s
+
+receivers:
+- name: 'telegram'
+  telegram_configs:
+  - send_resolved: true
+    api_url: https://api.telegram.org
+    bot_token: <PUT_BOT_TOKEN_HERE>
+    chat_id: <PUT_CHAT_ID_HERE>
