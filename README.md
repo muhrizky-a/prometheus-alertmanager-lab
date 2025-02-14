@@ -4,7 +4,7 @@ Learn to use Prometheus Alerting and Alertmanager
 # Directory
 ├── alertmanager
 │   └── alertmanager.yml
-├── script.sh
+├── script.yml
 └── prometheus
     ├── alert.yml
     └── prometheus.yml
