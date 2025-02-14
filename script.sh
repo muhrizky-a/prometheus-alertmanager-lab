@@ -1,4 +1,6 @@
 #!/bin/bash
+curl https://api.telegram.org/bot<token>/getUpdates
+
 docker run -d \
   --name prometheus \
   --network jenkins \
