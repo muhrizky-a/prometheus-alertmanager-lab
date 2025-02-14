@@ -1,7 +1,4 @@
 #!/bin/bash
-git clone https://github.com/muhrizky-a/prometheus-alertmanager-lab.git
-cd prometheus-alertmanager-lab
-
 docker run -d \
   --name prometheus \
   --network jenkins \
